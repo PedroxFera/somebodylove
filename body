@@ -1,0 +1,25 @@
+document.addEventListener('DOMContentLoaded', function() {
+    const yesButton = document.getElementById('yesButton');
+    const noButton = document.getElementById('noButton');
+    const fakeErrorScreen = document.getElementById('fakeErrorScreen');
+
+    yesButton.addEventListener('click', function() {
+        window.location.href = 'https://youtu.be/3JiUJm3sAv8?si=oaze15cmNAmwwHtb'; // Substitua com o link do seu vídeo
+    });
+
+    noButton.addEventListener('mouseover', function() {
+        const maxWidth = window.innerWidth - noButton.offsetWidth;
+        const maxHeight = window.innerHeight - noButton.offsetHeight;
+        const randomX = Math.floor(Math.random() * maxWidth);
+        const randomY = Math.floor(Math.random() * maxHeight);
+        noButton.style.position = 'absolute';
+        noButton.style.left = randomX + 'px';
+        noButton.style.top = randomY + 'px';
+    });
+
+    if (/Mobi|Android/i.test(navigator.userAgent)) {
+        noButton.addEventListener('click', function() {
+            fakeErrorScreen.style.display = 'flex';
+        });
+    }
+});
